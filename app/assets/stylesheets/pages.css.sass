@@ -1,0 +1,109 @@
+$blue-light: 				rgb(89, 201, 232)
+$blue-mid: 					rgb(65, 146, 168)
+$blue-dark: 				rgb(40, 91, 105)
+
+$yellow-light: 			rgb(246, 207, 65)
+$yellow-mid: 				rgb(181, 152, 48)
+$yellow-dark: 			rgb(118, 100, 40)
+
+$black-light: 			rgb(33, 33, 33)
+$black-mid: 				rgb(110, 110, 110)
+$black-dark: 				rgb(173, 173, 173)
+
+$gray: 							rgb(51, 51, 51)
+
+$white-light: 			rgb(239, 239, 239)
+$white-mid: 				rgb(112, 112, 112)
+$white-dark: 				rgb(173, 173, 173)
+
+$orange-light: 			rgb(232, 74, 36)
+$orange-mid: 				rgb(168, 54, 26)
+$orange-dark: 			rgb(105, 33, 16)
+
+$green-light: 			rgb(199, 211, 47)
+$green-mid: 				rgb(139, 147, 33)
+$green-dark: 				rgb(79, 84, 19)
+
+
+$base-height: 			16px
+
+@mixin center-block
+	display: block
+	margin-right: auto
+	margin-left: auto
+
+@mixin box-sizing($box-model)
+	-webkit-box-sizing: $box-model // Safari <= 5
+	-moz-box-sizing: $box-model // Firefox <= 19
+	box-sizing: $box-model
+
+@mixin opacity($opacity)
+	opacity: $opacity
+	$opacity-ie: $opacity * 100
+	filter: alpha(opacity=$opacity-ie) //IE8
+
+@mixin border-radius($radius: 3px)
+	-moz-border-radius: $radius
+	-webkit-border-radius: $radius
+	border-radius: $radius
+	background-clip: padding-box
+
+html, body
+	margin: 0px
+	padding: 0px
+	height: 100%
+	width: 100%
+	font:
+		weight: 100
+		size: $base-height
+		family: 'ARS Maquette Pro Light', Helvetica, Arial, sans-serif
+
+*, *:after, *:before
+	@include box-sizing(border-box)
+
+a, a:hover, a:active, a:visited
+	text-decoration: none
+	color: $white-light
+
+.container
+	width: 960px
+	margin-top: 10%
+	@include center-block
+
+a.btn
+	padding: 1rem 1.5rem
+	vertical-align: middle
+	font-weight: 700
+	background-color: $blue-light
+	border: 1px solid $blue-mid
+	@include border-radius
+
+a.btn-blue
+	background-color: $blue-light
+	border-color: $blue-mid
+	color: $blue-dark
+
+a.btn-yellow
+	background-color: $yellow-light
+	border-color: $yellow-mid
+	color: $yellow-dark
+
+a.btn-black
+	background-color: $black-light
+	border-color: $black-mid
+	color: $black-dark
+
+a.btn-white
+	background-color: $white-light
+	border-color: $white-mid
+	color: $white-dark
+
+a.btn-orange
+	background-color: $orange-light
+	border-color: $orange-mid
+	color: $orange-dark
+
+a.btn-green
+	background-color: $green-light
+	border-color: $green-mid
+	color: $green-dark
