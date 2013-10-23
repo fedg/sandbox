@@ -1,3 +1,8 @@
+
+// ====================== Strategyzer Style Guide 2013 ========================
+
+// Colour Palette
+
 $blue-light: 				rgb(89, 201, 232)
 $blue-mid: 					rgb(65, 146, 168)
 $blue-dark: 				rgb(40, 91, 105)
@@ -24,13 +29,31 @@ $green-light: 			rgb(199, 211, 47)
 $green-mid: 				rgb(139, 147, 33)
 $green-dark: 				rgb(79, 84, 19)
 
+// Typography
 
 $base-height: 			16px
+$base-font:					'ARS Maquette Pro Light', Helvetica, Arial, sans-serif
+
+$h1: 								3rem
+$h2: 								2rem
+$h3: 								1.8rem
+$h4: 								1.2rem
+$h5: 								1rem
+$h6: 								1rem
+
+$light: 						100
+$regular: 					400
+$bold: 							700
+
+// Base Mixins
 
 @mixin center-block
 	display: block
 	margin-right: auto
 	margin-left: auto
+
+@mixin base-border
+	border: 1px solid $gray
 
 @mixin box-sizing($box-model)
 	-webkit-box-sizing: $box-model // Safari <= 5
@@ -48,62 +71,96 @@ $base-height: 			16px
 	border-radius: $radius
 	background-clip: padding-box
 
+// Base Styles
+
 html, body
 	margin: 0px
 	padding: 0px
 	height: 100%
 	width: 100%
 	font:
-		weight: 100
+		weight: $light
 		size: $base-height
-		family: 'ARS Maquette Pro Light', Helvetica, Arial, sans-serif
+		family: $base-font
 
 *, *:after, *:before
 	@include box-sizing(border-box)
 
 a, a:hover, a:active, a:visited
 	text-decoration: none
-	color: $white-light
+	color: $gray
+
+ul, li
+	list-style: none
+
+// Base Layout
 
 .container
-	width: 960px
+	width: 1000px
 	margin-top: 10%
 	@include center-block
+
+// Base Buttons	
 
 a.btn
 	padding: 1rem 1.5rem
 	vertical-align: middle
-	font-weight: 700
+	font-weight: $bold
 	background-color: $blue-light
-	border: 1px solid $blue-mid
+	@include base-border
 	@include border-radius
 
 a.btn-blue
 	background-color: $blue-light
 	border-color: $blue-mid
 	color: $blue-dark
+	&:hover
+		background-color: $blue-mid
+		color: $blue-light
 
 a.btn-yellow
 	background-color: $yellow-light
 	border-color: $yellow-mid
 	color: $yellow-dark
+	&:hover
+		background-color: $yellow-mid
+		color: $yellow-light		
 
 a.btn-black
 	background-color: $black-light
 	border-color: $black-mid
 	color: $black-dark
+	&:hover
+		background-color: $black-mid
+		color: $black-light
 
 a.btn-white
 	background-color: $white-light
 	border-color: $white-mid
 	color: $white-dark
+	&:hover
+		background-color: $white-mid
+		color: $white-light
 
 a.btn-orange
 	background-color: $orange-light
 	border-color: $orange-mid
 	color: $orange-dark
+	&:hover
+		background-color: $orange-mid	
+		color: $orange-light
 
 a.btn-green
 	background-color: $green-light
 	border-color: $green-mid
 	color: $green-dark
+	&:hover
+		background-color: $green-mid	
+		color: $green-light
+
+
+
+
+
+
+
