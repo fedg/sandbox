@@ -3,6 +3,12 @@
 
 // Colour Palette
 
+$cobalt-ulight: 		rgba(115, 122, 130, 1)
+$cobalt-light: 			rgba(95, 102, 110, 1)
+$cobalt-reg: 				rgba(75, 82, 90, 1)
+$cobalt-mid: 				rgba(55, 62, 70, 1)
+$cobalt-dark: 			rgba(35, 42, 50, 1)
+
 $blue-light: 				rgba(89, 201, 232, 1)
 $blue-mid: 					rgba(65, 146, 168, 1)
 $blue-dark: 				rgba(40, 91, 105, 1)
@@ -11,9 +17,9 @@ $yellow-light: 			rgba(246, 207, 65, 1)
 $yellow-mid: 				rgba(181, 152, 48, 1)
 $yellow-dark: 			rgba(118, 100, 40, 1)
 
-$black-light: 			rgba(33, 33, 33, 1)
+$black-light: 			rgba(173, 173, 173, 1)
 $black-mid: 				rgba(110, 110, 110, 1)
-$black-dark: 				rgba(173, 173, 173, 1)
+$black-dark: 				rgba(33, 33, 33, 1)
 
 $gray: 							rgba(51, 51, 51, 1)
 
@@ -31,8 +37,8 @@ $green-dark: 				rgba(79, 84, 19, 1)
 
 // Typography
 
-$base-height: 			16px
-$base-font:					'ARS Maquette Pro Light', Helvetica, Arial, sans-serif
+$base-height: 			14px
+$base-font:					'ARSMaquettePro-Light', Helvetica, Arial, sans-serif
 $light: 						100
 $regular: 					400
 $bold: 							700
@@ -87,7 +93,7 @@ $bold: 							700
 	$opacity-ie: $opacity * 100
 	filter: alpha(opacity=$opacity-ie) //IE8
 
-@mixin border-radius($radius: 3px)
+@mixin border-radius($radius: 4px)
 	-moz-border-radius: $radius
 	-webkit-border-radius: $radius
 	border-radius: $radius
@@ -101,10 +107,12 @@ $bold: 							700
 // Base Styles
 
 html, body
+	background-color: $yellow-light
 	margin: 0px
 	padding: 0px
 	height: 100%
 	width: 100%
+	color: $cobalt-dark
 	font:
 		weight: $light
 		size: $base-height
@@ -115,10 +123,38 @@ html, body
 
 a, a:hover, a:active, a:visited
 	text-decoration: none
-	color: $gray
+	color: $cobalt-dark
+	border: none
+	-webkit-transition: 0.3s
+	-moz-transition: 0.3s
+	-ms-transition: 0.3s
+	-o-transition: 0.3s
+	transition: 0.3s
 
 ul, li
 	list-style: none
+	display: inline-block
+	-webkit-transition: 0.3s
+	-moz-transition: 0.3s
+	-ms-transition: 0.3s
+	-o-transition: 0.3s
+	transition: 0.3s
+
+.nav-2 .logo 
+	padding: 28px 1rem !important
+	
+.nav-2 .logo a
+	font-size: 2.5rem
+	padding: 10px 1rem !important
+
+.nav .logo
+	position: relative
+	top: -24px 
+	padding: 10px 1rem !important
+	
+.nav .logo a
+	font-size: 2.5rem
+	padding: 10px 1rem !important
 
 // Base Layout
 
@@ -126,18 +162,148 @@ ul, li
 	width: 1000px
 	margin-top: 10%
 	@include center-block
+	display: none
+
+.main-nav
+	position: absolute
+	top: 0px
+	left: 0px
+	margin: 0 auto
+	width: 100%
+	font-weight: 700
+
+.main-nav.v2 
+	top: 200px
+
+.main-nav.v3 
+	top: 400px
+
+// Main Nav v1.0
+
+.nav
+	background-color: $yellow-light
+	border-bottom: 1px solid $yellow-mid
+	padding: 40px 1rem
+	margin: 0 auto
+	width: 100%
+	height: 100px
+
+.nav li 
+	width: auto
+	float: left
+	padding: 0px 1rem
+
+.nav .controls-user
+	float: right
+	width: 20%
+
+.nav a 
+	padding: 0px 0px 12px
+	border-color: $cobalt-dark
+
+.nav a:hover
+	padding: 0px 0px 8px
+	border-bottom: 3px solid $cobalt-dark
+
+.nav .controls-user .btn 
+	padding: 0.5rem 1.5rem
+	border: 1px solid $cobalt-dark
+
+.nav .controls-user .btn:hover
+	background-color: $cobalt-dark
+	border: 1px solid $cobalt-dark
+	color: $yellow-light
+
+// Main Nav v2.0
+
+.nav-2
+	background-color: $yellow-light
+	border-top: 1px solid $yellow-mid
+	border-bottom: 1px solid $yellow-mid
+	padding: 0px 1rem
+	margin: 0 auto
+	width: 100%
+	height: 100px
+
+.nav-2 li 
+	width: auto
+	float: left
+	padding: 41px 1rem
+
+.nav-2 .controls-user
+	float: right
+	width: 20%
+
+.nav-2 a
+	background-color: $yellow-light 
+	padding: 41px 1rem 40px
+
+.nav-2 a:hover
+	background-color: lighten($yellow-mid, 10%)
+
+.nav-2 .controls-user .btn 
+	padding: 0.5rem 1.5rem
+	border: 1px solid
+
+.nav-2 .controls-user .btn:hover
+	background-color: $cobalt-dark
+	border: 1px solid
+	color: $yellow-light
+
+// Main Nav v3.0
+
+.nav-3
+	background-color: $yellow-light
+	border-top: 1px solid $yellow-mid
+	border-bottom: 1px solid $yellow-mid
+	padding: 0px 1rem
+	margin: 0 auto
+	width: 100%
+	height: 100px
+
+.nav-3 li 
+	width: auto
+	float: left
+	padding: 41px 1rem
+
+.nav-3 .controls-user
+	float: right
+	width: 20%
+
+.nav-3 a
+	border-top: 7px solid trasparent
+	padding: 41px 1rem
+
+.nav-3 a:hover
+	padding: 34px 1rem
+	border-top: 7px solid $cobalt-dark
+
+.nav-3 .controls-user .btn 
+	background-color: $cobalt-dark
+	padding: 0.5rem 1.5rem
+	border: 1px solid $cobalt-dark
+	color: $yellow-light
+
+.nav-3 .controls-user .btn:hover
+	background-color: transparent
+	border: 1px solid $cobalt-dark
+	color: $cobalt-dark
+
+.nav-3 .selected
+	padding: 34px 1rem
+	border-top: 7px solid $cobalt-dark
+
 
 // Base Buttons	
 
 .btn
-	padding: 1rem 1.5rem
+	padding: 0.5rem 1.5rem
 	vertical-align: middle
 	font-weight: $bold
-	background-color: $blue-light
+	background-color: none
 	@include base-border
 	@include border-radius
 	@include h5
-	@include box-shadow(0px 1px 2px transparentize($gray, 0.4))
 
 .btn-blue
 	background-color: $blue-light
