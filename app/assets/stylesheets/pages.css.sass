@@ -10,18 +10,19 @@ $cobalt-mid: 				rgba(55, 62, 70, 1)
 $cobalt-dark: 			rgba(35, 42, 50, 1)
 
 $blue-light: 				rgba(89, 201, 232, 1)
-$blue-mid: 					rgba(65, 146, 168, 1)
-$blue-dark: 				rgba(40, 91, 105, 1)
+$blue-mid: 					rgba(69, 181, 212, 1)
+$blue-dark: 				rgba(49, 161, 192, 1)
 
-$yellow-light: 			rgba(246, 207, 65, 1)
-$yellow-mid: 				rgba(181, 152, 48, 1)
-$yellow-dark: 			rgba(118, 100, 40, 1)
+$yellow-light: 			rgba(255, 227, 85, 1)
+$yellow-mid: 				rgba(235, 207, 65, 1)
+$yellow-dark: 			rgba(215, 187, 45, 1)
 
 $black-light: 			rgba(173, 173, 173, 1)
 $black-mid: 				rgba(110, 110, 110, 1)
 $black-dark: 				rgba(33, 33, 33, 1)
 
 $gray: 							rgba(51, 51, 51, 1)
+$white: 						rgba(255, 255, 255, 1)
 
 $white-light: 			rgba(239, 239, 239, 1)
 $white-mid: 				rgba(112, 112, 112, 1)
@@ -104,10 +105,42 @@ $bold: 							700
 	-moz-box-shadow: $shadows
 	box-shadow: $shadows
 
+@mixin transition($transition...)
+	-moz-transition:    $transition
+	-o-transition:      $transition
+	-webkit-transition: $transition
+	transition:         $transition
+
+@mixin transition-property($property...)
+	-moz-transition-property:    $property
+	-o-transition-property:      $property
+	-webkit-transition-property: $property
+	transition-property:         $property
+
+@mixin transition-duration($duration...)
+	-moz-transition-property:    $duration
+	-o-transition-property:      $duration
+	-webkit-transition-property: $duration
+	transition-property:         $duration
+
+@mixin transition-timing-function($timing...)
+	-moz-transition-timing-function:    $timing
+	-o-transition-timing-function:      $timing
+	-webkit-transition-timing-function: $timing
+	transition-timing-function:         $timing
+
+@mixin transition-delay($delay...)
+	-moz-transition-delay:    $delay
+	-o-transition-delay:      $delay
+	-webkit-transition-delay: $delay
+	transition-delay:         $delay
+
+
+
 // Base Styles
 
 html, body
-	background-color: $yellow-light
+	background-color: $white
 	margin: 0px
 	padding: 0px
 	height: 100%
@@ -125,36 +158,33 @@ a, a:hover, a:active, a:visited
 	text-decoration: none
 	color: $cobalt-dark
 	border: none
-	-webkit-transition: 0.3s
-	-moz-transition: 0.3s
-	-ms-transition: 0.3s
-	-o-transition: 0.3s
-	transition: 0.3s
+	@include transition(all 0.3s ease-in-out)
+
+img
+	width: 100%
 
 ul, li
 	list-style: none
 	display: inline-block
-	-webkit-transition: 0.3s
-	-moz-transition: 0.3s
-	-ms-transition: 0.3s
-	-o-transition: 0.3s
-	transition: 0.3s
+	@include transition(all 0.3s ease-in-out)
 
-.nav-2 .logo 
-	padding: 28px 1rem !important
-	
-.nav-2 .logo a
-	font-size: 2.5rem
-	padding: 10px 1rem !important
-
-.nav .logo
+.logo
+	width: 15%
 	position: relative
-	top: -24px 
-	padding: 10px 1rem !important
-	
-.nav .logo a
-	font-size: 2.5rem
-	padding: 10px 1rem !important
+	float: left
+	padding: 2.4rem 0px 0px
+
+.logo a
+	border: none
+	padding: 0px
+	margin: 0px
+	background-color: none
+
+.logo a:hover
+	border: none
+	padding: 0px
+	margin: 0px
+	background-color: none
 
 // Base Layout
 
@@ -164,135 +194,182 @@ ul, li
 	@include center-block
 	display: none
 
-.main-nav
+.main-nav, .sub-nav
 	position: absolute
 	top: 0px
 	left: 0px
 	margin: 0 auto
+	padding: 0px 1rem
 	width: 100%
-	font-weight: 700
+	height: 100px
+	font-weight: $bold
+	background-color: $yellow-light
+	// border-top: 1px solid $yellow-mid
+	// border-bottom: 1px solid $yellow-mid
 
 .main-nav.v2 
-	top: 200px
+	top: 600px
 
 .main-nav.v3 
+	top: 800px
+
+.main-nav.v4
+	top: 200px
+	color: $white
+	background-color: $cobalt-dark
+
+.main-nav.v5
 	top: 400px
+	background-color: $blue-light
+
+.nav
+	width: 85%
+	height: 100%
+	margin: 0px auto
+	padding: 0px 0px 0px 2rem
+
+.nav li
+	margin: auto
+	padding: 3rem 0px 2.9rem
+	float: left
+
+.sub-nav
+	height: 70px
+
+.sub-nav.v1
+	top: 100px
+	background-color: lighten($yellow-light, 20%)
+
+.sub
+	top: 100px
+	width: 100%
+	margin: 0 auto
+	padding: 0px
+
+.controls-user
+	width: 30%
+	position: relative
+	float: right
+
+.controls-user li
+	position: relative
+	float: right
 
 // Main Nav v1.0
 
-.nav
-	background-color: $yellow-light
-	border-bottom: 1px solid $yellow-mid
-	padding: 40px 1rem
-	margin: 0 auto
-	width: 100%
-	height: 100px
+.nav.v1 li
+	padding: 3rem 2rem 2.9rem
 
-.nav li 
-	width: auto
-	float: left
-	padding: 0px 1rem
-
-.nav .controls-user
-	float: right
-	width: 20%
-
-.nav a 
-	padding: 0px 0px 12px
+.nav.v1 a 
+	padding: 0px 0px 14px
 	border-color: $cobalt-dark
 
-.nav a:hover
+.nav.v1 a:hover
 	padding: 0px 0px 8px
-	border-bottom: 3px solid $cobalt-dark
+	border-bottom: 4px solid $cobalt-dark
 
-.nav .controls-user .btn 
+.nav.v1 .controls-user .btn 
 	padding: 0.5rem 1.5rem
 	border: 1px solid $cobalt-dark
 
-.nav .controls-user .btn:hover
+.nav.v1 .controls-user .btn:hover
 	background-color: $cobalt-dark
 	border: 1px solid $cobalt-dark
 	color: $yellow-light
 
 // Main Nav v2.0
 
-.nav-2
-	background-color: $yellow-light
-	border-top: 1px solid $yellow-mid
-	border-bottom: 1px solid $yellow-mid
-	padding: 0px 1rem
-	margin: 0 auto
-	width: 100%
-	height: 100px
-
-.nav-2 li 
-	width: auto
-	float: left
-	padding: 41px 1rem
-
-.nav-2 .controls-user
-	float: right
-	width: 20%
-
-.nav-2 a
+.nav.v2 a
 	background-color: $yellow-light 
-	padding: 41px 1rem 40px
+	padding: 3rem 2rem 2.9rem
 
-.nav-2 a:hover
-	background-color: lighten($yellow-mid, 10%)
-
-.nav-2 .controls-user .btn 
-	padding: 0.5rem 1.5rem
-	border: 1px solid
-
-.nav-2 .controls-user .btn:hover
-	background-color: $cobalt-dark
-	border: 1px solid
-	color: $yellow-light
+.nav.v2 a:hover
+	background-color: $yellow-mid
 
 // Main Nav v3.0
 
-.nav-3
-	background-color: $yellow-light
-	border-top: 1px solid $yellow-mid
-	border-bottom: 1px solid $yellow-mid
-	padding: 0px 1rem
-	margin: 0 auto
-	width: 100%
-	height: 100px
-
-.nav-3 li 
-	width: auto
-	float: left
-	padding: 41px 1rem
-
-.nav-3 .controls-user
-	float: right
-	width: 20%
-
-.nav-3 a
+.nav.v3 a
 	border-top: 7px solid trasparent
-	padding: 41px 1rem
+	padding: 3rem 2rem 2.9rem
 
-.nav-3 a:hover
-	padding: 34px 1rem
+.nav.v3 a:hover
+	padding: 2.5rem 2rem 2.9rem
 	border-top: 7px solid $cobalt-dark
 
-.nav-3 .controls-user .btn 
-	background-color: $cobalt-dark
-	padding: 0.5rem 1.5rem
-	border: 1px solid $cobalt-dark
-	color: $yellow-light
+.nav.v3 .selected
+	padding: 2.5rem 2rem 2.9rem
+	border-top: 7px solid $cobalt-dark
 
-.nav-3 .controls-user .btn:hover
-	background-color: transparent
-	border: 1px solid $cobalt-dark
+// Main Nav v.4.0
+
+.nav.v4 li, .nav.v4 a
+	color: $white
+
+.nav.v4 li
+	padding: 3rem 2rem 2.9rem
+
+.nav.v4 a 
+	padding: 0px 0px 14px
+	border-color: $white
+
+.nav.v4 a:hover
+	padding: 0px 0px 8px
+	border-bottom: 4px solid $white
+
+.nav.v4 .controls-user .btn 
+	padding: 0.5rem 1.5rem
+	border: 1px solid $white
+	background-color: $white
 	color: $cobalt-dark
 
-.nav-3 .selected
-	padding: 34px 1rem
-	border-top: 7px solid $cobalt-dark
+.nav.v4 .controls-user .btn:hover
+	background-color: rgba($white, 0.8)
+	border: 1px solid $white
+	color: $cobalt-dark
 
+// Main Nav v5.0
+
+.nav.v5 li
+	padding: 3rem 2rem 2.9rem
+
+.nav.v5 a 
+	padding: 0px 0px 14px
+	border-color: $cobalt-dark
+
+.nav.v5 a:hover
+	padding: 0px 0px 8px
+	border-bottom: 4px solid $cobalt-dark
+
+.nav.v5 .controls-user .btn 
+	padding: 0.5rem 1.5rem
+	border: 1px solid $cobalt-dark
+
+.nav.v5 .controls-user .btn:hover
+	background-color: $cobalt-dark
+	border: 1px solid $cobalt-dark
+	color: $blue-light
+
+// Sub Nav v1.0
+
+.sub.v1 li
+	padding: 1.8rem 2rem 2rem
+
+.sub.v1 a 
+	padding: 0px 0px 2rem
+	border-color: $cobalt-dark
+
+.sub.v1 a:hover
+	padding: 0px 0px 1.7rem
+	border-bottom: 4px solid $cobalt-dark
+
+.sub.v1 .controls-user .btn 
+	padding: 0.5rem 1.5rem
+	border: 1px solid $cobalt-dark
+
+.sub.v1 .controls-user .btn:hover
+	background-color: $cobalt-dark
+	border: 1px solid $cobalt-dark
+	color: lighten($yellow-light, 20%)
 
 // Base Buttons	
 
