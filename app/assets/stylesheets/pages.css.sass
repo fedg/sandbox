@@ -140,7 +140,7 @@ $bold: 							700
 // Base Styles
 
 html, body
-	background-color: $cobalt-dark
+	background-color: $white
 	margin: 0px
 	padding: 0px
 	height: 100%
@@ -192,13 +192,24 @@ ul, li
 	width: 1000px
 	margin-top: 10%
 	@include center-block
-	display: none
+
+.container-section
+	width: 100%
+	height: 680px
+	margin: 0 auto
+
+.container-section.v1, .container-section.v4, .container-section.v5
+	background-color: $yellow-light
+
+.container-section.v2
+	background-color: $blue-light
+
+.container-section.v3
+	background-color: $cobalt-dark
 
 .main-nav, .sub-nav
-	position: absolute
-	top: 0px
-	left: 0px
 	margin: 0 auto
+	// margin-bottom: 720px
 	padding: 0px 1rem
 	width: 100%
 	height: 100px
@@ -207,19 +218,17 @@ ul, li
 	// border-top: 1px solid $yellow-mid
 	// border-bottom: 1px solid $yellow-mid
 
-.main-nav.v2 
-	top: 600px
+// .v0, .v5, .v4
+// 	margin-bottom: 0px
 
 .main-nav.v3 
-	top: 800px
+	border-top: 1px solid rgba(100,100,100,0.1)
 
 .main-nav.v4
-	top: 200px
 	color: $white
 	background-color: $cobalt-dark
 
 .main-nav.v5
-	top: 400px
 	background-color: $blue-light
 
 .nav
@@ -237,15 +246,12 @@ ul, li
 	height: 70px
 
 .sub-nav.v1
-	top: 100px
 	background-color: lighten($yellow-light, 20%)
 
 .sub-nav.v2
-	top: 300px
 	background-color: lighten($cobalt-light, 20%)
 
 .sub-nav.v3
-	top: 500px
 	background-color: lighten($blue-light, 20%)
 
 .sub
