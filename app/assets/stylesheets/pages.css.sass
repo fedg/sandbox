@@ -70,6 +70,7 @@ $bold: 							700
 	font-size: 1rem
 	color: $gray
 	line-height: 0.7rem
+	text-transform: uppercase
 
 @mixin h6
 	font-size: 1rem
@@ -82,7 +83,7 @@ $bold: 							700
 	margin-left: auto
 
 @mixin base-border
-	border: 1px solid $gray
+	border: 1px solid $cobalt-ulight
 
 @mixin box-sizing($box-model)
 	-webkit-box-sizing: $box-model // Safari <= 5
@@ -154,10 +155,9 @@ html, body
 *, *:after, *:before
 	@include box-sizing(border-box)
 
-a, a:hover, a:active, a:visited
+a, a:hover, a:active
 	text-decoration: none
 	color: $cobalt-dark
-	border: none
 	@include transition(all 0.3s ease-in-out)
 
 img
@@ -169,7 +169,7 @@ ul, li
 	@include transition(all 0.3s ease-in-out)
 
 .logo
-	width: 15%
+	width: 18%
 	position: relative
 	float: left
 	padding: 2.4rem 0px 0px
@@ -179,23 +179,22 @@ ul, li
 	padding: 0px
 	margin: 0px
 	background-color: none
-
-.logo a:hover
-	border: none
-	padding: 0px
-	margin: 0px
-	background-color: none
+	&:hover
+		border: none
+		padding: 0px
+		margin: 0px
+		background-color: none
 
 // Base Layout
 
 .container
-	width: 1000px
+	width: 1250px
 	margin-top: 10%
 	@include center-block
 
 .container-section
 	width: 100%
-	height: 680px
+	height: 800px
 	margin: 0 auto
 
 .container-section.v1, .container-section.v4, .container-section.v5
@@ -210,7 +209,7 @@ ul, li
 .main-nav, .sub-nav
 	margin: 0 auto
 	// margin-bottom: 720px
-	padding: 0px 1rem
+	padding: 0px 6rem
 	width: 100%
 	height: 100px
 	font-weight: $bold
@@ -218,10 +217,13 @@ ul, li
 	// border-top: 1px solid $yellow-mid
 	// border-bottom: 1px solid $yellow-mid
 
+.sub-nav
+	padding: 0px 4rem
+
 // .v0, .v5, .v4
 // 	margin-bottom: 0px
 
-.main-nav.v3 
+.main-nav.v0
 	border-top: 1px solid rgba(100,100,100,0.1)
 
 .main-nav.v4
@@ -232,7 +234,7 @@ ul, li
 	background-color: $blue-light
 
 .nav
-	width: 85%
+	width: 82%
 	height: 100%
 	margin: 0px auto
 	padding: 0px 0px 0px 2rem
@@ -245,7 +247,7 @@ ul, li
 .sub-nav
 	height: 70px
 
-.sub-nav.v1
+.sub-nav.v1, .sub-nav.v4
 	background-color: lighten($yellow-light, 20%)
 
 .sub-nav.v2
@@ -274,222 +276,254 @@ ul, li
 .nav.v1 li
 	padding: 3rem 2rem 2.9rem
 
-.nav.v1 a 
+.nav.v1 a
 	padding: 0px 0px 14px
 	border-color: $cobalt-dark
+	border: 0px solid transparent
+	&:hover
+		padding: 0px 0px 8px
+		border-bottom: 4px solid $cobalt-dark
 
-.nav.v1 a:hover
-	padding: 0px 0px 8px
-	border-bottom: 4px solid $cobalt-dark
-
-.nav.v1 .controls-user .btn 
+.nav.v1 .controls-user .btn
 	padding: 0.5rem 1.5rem
 	border: 1px solid $cobalt-dark
-
-.nav.v1 .controls-user .btn:hover
-	background-color: $cobalt-dark
-	border: 1px solid $cobalt-dark
-	color: $yellow-light
+	&:hover
+		background-color: $cobalt-dark
+		border: 1px solid $cobalt-dark
+		color: $yellow-light
 
 // Main Nav v2.0
 
 .nav.v2 a
-	background-color: $yellow-light 
+	background-color: $yellow-light
 	padding: 3rem 2rem 2.9rem
-
-.nav.v2 a:hover
-	background-color: $yellow-mid
+	&:hover
+		background-color: $yellow-mid
 
 // Main Nav v3.0
 
 .nav.v3 a
-	border-top: 7px solid trasparent
 	padding: 3rem 2rem 2.9rem
-
-.nav.v3 a:hover
-	padding: 2.5rem 2rem 2.9rem
-	border-top: 7px solid $cobalt-dark
+	border-top: 0px solid transparent
+	&:hover
+		padding: 2.8rem 2rem 2.9rem
+		border-top: 5px solid $cobalt-dark
 
 .nav.v3 .selected
-	padding: 2.5rem 2rem 2.9rem
-	border-top: 7px solid $cobalt-dark
+	padding: 2.8rem 2rem 2.9rem
+	border-top: 5px solid $cobalt-dark
+
+.nav.v3 .controls-user .btn
+	padding: 0.5rem 1.5rem
+	border: 1px solid $cobalt-dark
+	color: $cobalt-dark
+	&:hover
+		color: $cobalt-ulight
 
 // Main Nav v.4.0
 
 .nav.v4 li, .nav.v4 a
 	color: $white
 
-.nav.v4 li
+.nav.v4 a
 	padding: 3rem 2rem 2.9rem
+	border-top: 0px solid transparent
+	&:hover
+		padding: 2.7rem 2rem 2.9rem
+		border-top: 5px solid $white
 
-.nav.v4 a 
-	padding: 0px 0px 14px
-	border-color: $white
+.nav.v4 .selected
+	padding: 2.7rem 2rem 2.9rem
+	border-top: 5px solid $white
 
-.nav.v4 a:hover
-	padding: 0px 0px 8px
-	border-bottom: 4px solid $white
-
-.nav.v4 .controls-user .btn 
+.nav.v4 .controls-user .btn
 	padding: 0.5rem 1.5rem
 	border: 1px solid $white
-	background-color: $white
-	color: $cobalt-dark
-
-.nav.v4 .controls-user .btn:hover
-	background-color: rgba($white, 0.8)
-	border: 1px solid $white
-	color: $cobalt-dark
+	color: $cobalt-ulight
+	&:hover
+		color: $white
 
 // Main Nav v5.0
 
-.nav.v5 li
+.nav.v5 a
 	padding: 3rem 2rem 2.9rem
+	border-top: 0px solid transparent
+	&:hover
+		padding: 2.7rem 2rem 2.9rem
+		border-top: 5px solid $cobalt-dark
 
-.nav.v5 a 
-	padding: 0px 0px 14px
-	border-color: $cobalt-dark
+.nav.v5 .selected
+	padding: 2.7rem 2rem 2.9rem
+	border-top: 5px solid $cobalt-dark
 
-.nav.v5 a:hover
-	padding: 0px 0px 8px
-	border-bottom: 4px solid $cobalt-dark
-
-.nav.v5 .controls-user .btn 
+.nav.v5 .controls-user .btn
 	padding: 0.5rem 1.5rem
 	border: 1px solid $cobalt-dark
-
-.nav.v5 .controls-user .btn:hover
-	background-color: $cobalt-dark
-	border: 1px solid $cobalt-dark
-	color: $blue-light
+	color: $cobalt-dark
+	&:hover
+		color: $cobalt-ulight
 
 // Sub Nav v1.0
 
 .sub.v1 li
 	padding: 1.8rem 2rem 2rem
 
-.sub.v1 a 
+.sub.v1 a
 	padding: 0px 0px 2rem
 	border-color: $cobalt-dark
+	&:hover
+		padding: 0px 0px 1.7rem
+		border-bottom: 4px solid $cobalt-dark
 
-.sub.v1 a:hover
-	padding: 0px 0px 1.7rem
-	border-bottom: 4px solid $cobalt-dark
-
-.sub.v1 .controls-user .btn 
+.sub.v1 .controls-user .btn
 	padding: 0.5rem 1.5rem
 	border: 1px solid $cobalt-dark
-
-.sub.v1 .controls-user .btn:hover
-	background-color: $cobalt-dark
-	border: 1px solid $cobalt-dark
-	color: lighten($yellow-light, 20%)
+	&:hover
+		background-color: $cobalt-dark
+		border: 1px solid $cobalt-dark
+		color: lighten($yellow-light, 20%)
 
 // Sub Nav v2.0
 
 .sub.v2 li
 	padding: 1.8rem 2rem 2rem
 
-.sub.v2 a 
-	padding: 0px 0px 2rem
+.sub.v2 a
+	padding: 2rem 0px 0px
 	border-color: $cobalt-dark
+	&:hover
+		padding: 1.5rem 0px 0px
+		border-top: 5px solid $cobalt-dark
 
-.sub.v2 a:hover
-	padding: 0px 0px 1.7rem
-	border-bottom: 4px solid $cobalt-dark
-
-.sub.v2 .controls-user .btn 
+.sub.v2 .controls-user .btn
 	padding: 0.5rem 1.5rem
 	border: 1px solid $cobalt-dark
-
-.sub.v2 .controls-user .btn:hover
-	background-color: $cobalt-dark
-	border: 1px solid $cobalt-dark
-	color: lighten($cobalt-light, 20%)
+	color: $cobalt-light
+	&:hover
+		color: $cobalt-dark
 
 // Sub Nav v3.0
 
 .sub.v3 li
 	padding: 1.8rem 2rem 2rem
 
-.sub.v3 a 
-	padding: 0px 0px 2rem
+.sub.v3 a
+	padding: 2rem 0px 0px
 	border-color: $cobalt-dark
+	border: 0px solid transparent
 
-.sub.v3 a:hover
-	padding: 0px 0px 1.7rem
-	border-bottom: 4px solid $cobalt-dark
+	&:hover
+		padding: 1.5rem 0px 0px
+		border-top: 5px solid $cobalt-dark
 
-.sub.v3 .controls-user .btn 
+.sub.v3 .controls-user .btn
 	padding: 0.5rem 1.5rem
 	border: 1px solid $cobalt-dark
+	color: $cobalt-light
+	&:hover
+		color: $cobalt-dark
 
-.sub.v3 .controls-user .btn:hover
-	background-color: $cobalt-dark
-	border: 1px solid $cobalt-dark
-	color: lighten($blue-light, 20%)
+// Sub Nav v4.0
 
+.sub.v4 li
+	padding: 1.8rem 2rem 2rem
 
-// Base Buttons	
+.sub.v4 a
+	padding: 2rem 0px 0px
+	border-color: $cobalt-dark
+	border: 0px solid transparent
+	&:hover
+		padding: 1.5rem 0px 0px
+		border-top: 5px solid $cobalt-dark
+
+.sub.v4 .controls-user .btn
+	padding: 0.5rem 1.5rem
+
+// Base Buttons
 
 .btn
 	padding: 0.5rem 1.5rem
 	vertical-align: middle
+	letter-spacing: 1px
 	font-weight: $bold
 	background-color: none
 	@include base-border
 	@include border-radius
+	border-color: $cobalt-ulight
 	@include h5
+	@include transition(all 0.3s ease-in-out)
+	&:hover
+		@include base-border
+		@include transition(all 0.3s ease-in-out)
+		color: $white
+	&:visited
+		text-decoration: none
 
 .btn-blue
 	background-color: $blue-light
-	border-color: $blue-mid
-	color: $blue-dark
+	background-image: -webkit-linear-gradient(lighten($blue-mid, 20%), $blue-mid)
+	background-image: linear-gradient(lighten($blue-mid, 20%), $blue-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
 	&:hover
-		background-color: $blue-mid
-		color: $blue-light
+		background-image: -webkit-linear-gradient($blue-light, $blue-mid)
+		background-image: linear-gradient($blue-light, $blue-mid)
 
 .btn-yellow
 	background-color: $yellow-light
-	border-color: $yellow-mid
-	color: $yellow-dark
+	background-image: -webkit-linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
+	background-image: linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $cobalt-mid
 	&:hover
-		background-color: $yellow-mid
-		color: $yellow-light		
+		background-image: -webkit-linear-gradient($yellow-light, $yellow-mid)
+		background-image: linear-gradient($yellow-light, $yellow-mid)
+		color: $cobalt-mid
 
 .btn-black
 	background-color: $black-light
-	border-color: $black-mid
-	color: $black-dark
+	background-image: -webkit-linear-gradient(lighten($black-mid, 20%), $black-mid)
+	background-image: linear-gradient(lighten($black-mid, 20%), $black-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
 	&:hover
-		background-color: $black-mid
-		color: $black-light
+		background-image: -webkit-linear-gradient($black-light, $black-mid)
+		background-image: linear-gradient($black-light, $black-mid)
 
 .btn-white
 	background-color: $white-light
-	border-color: $white-mid
-	color: $white-dark
+	background-image: -webkit-linear-gradient(lighten($white-light, 20%), $white-light)
+	background-image: linear-gradient(lighten($white-light, 20%), $white-light)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $cobalt-mid
 	&:hover
-		background-color: $white-mid
-		color: $white-light
+		background-image: -webkit-linear-gradient($white-light, $white-light)
+		background-image: linear-gradient($white-light, $white-light)
+		color: $cobalt-mid
 
 .btn-orange
 	background-color: $orange-light
-	border-color: $orange-mid
-	color: $orange-dark
+	background-image: -webkit-linear-gradient(lighten($orange-mid, 20%), $orange-mid)
+	background-image: linear-gradient(lighten($orange-mid, 20%), $orange-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
 	&:hover
-		background-color: $orange-mid	
-		color: $orange-light
+		background-image: -webkit-linear-gradient($orange-light, $orange-mid)
+		background-image: linear-gradient($orange-light, $orange-mid)
 
 .btn-green
 	background-color: $green-light
-	border-color: $green-mid
-	color: $green-dark
+	background-image: -webkit-linear-gradient(lighten($green-mid, 20%), $green-mid)
+	background-image: linear-gradient(lighten($green-mid, 20%), $green-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
 	&:hover
-		background-color: $green-mid	
-		color: $green-light
-
-
+		background-image: -webkit-linear-gradient($green-light, $green-mid)
+		background-image: linear-gradient($green-light, $green-mid)
 
 
 
