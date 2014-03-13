@@ -9,40 +9,40 @@ $cobalt-reg: 				rgba(75, 82, 90, 1)
 $cobalt-mid: 				rgba(55, 62, 70, 1)
 $cobalt-dark: 			rgba(35, 42, 50, 1)
 
-$blue-light: 				rgba(89, 201, 232, 1)
-$blue-mid: 					rgba(69, 181, 212, 1)
-$blue-dark: 				rgba(49, 161, 192, 1)
+$blue-light: 				rgba(109, 221, 252, 1)
+$blue-mid: 					rgba(89, 201, 232, 1)
+$blue-dark: 				rgba(69, 181, 202, 1)
 
 $yellow-light: 			rgba(255, 227, 85, 1)
 $yellow-mid: 				rgba(235, 207, 65, 1)
 $yellow-dark: 			rgba(215, 187, 45, 1)
 
-$black-light: 			rgba(173, 173, 173, 1)
-$black-mid: 				rgba(110, 110, 110, 1)
+$black-light: 			rgba(73, 73, 73, 1)
+$black-mid: 				rgba(53, 53, 53, 1)
 $black-dark: 				rgba(33, 33, 33, 1)
 
 $gray: 							rgba(51, 51, 51, 1)
 $white: 						rgba(255, 255, 255, 1)
 
 $white-light: 			rgba(239, 239, 239, 1)
-$white-mid: 				rgba(112, 112, 112, 1)
-$white-dark: 				rgba(173, 173, 173, 1)
+$white-mid: 				rgba(219, 219, 219, 1)
+$white-dark: 				rgba(199, 199, 199, 1)
 
-$orange-light: 			rgba(232, 74, 36, 1)
-$orange-mid: 				rgba(168, 54, 26, 1)
-$orange-dark: 			rgba(105, 33, 16, 1)
+$orange-light: 			rgba(252, 94, 56, 1)
+$orange-mid: 				rgba(232, 74, 36, 1)
+$orange-dark: 			rgba(212, 54, 16, 1)
 
-$green-light: 			rgba(199, 211, 47, 1)
-$green-mid: 				rgba(139, 147, 33, 1)
-$green-dark: 				rgba(79, 84, 19, 1)
+$green-light: 			rgba(229, 231, 67, 1)
+$green-mid: 				rgba(209, 211, 47, 1)
+$green-dark: 				rgba(189, 191, 27, 1)
 
 // Typography
 
 $base-height: 			14px
 $base-font:					'ARSMaquettePro-Light', Helvetica, Arial, sans-serif
-$light: 						100
-$regular: 					400
-$bold: 							700
+$font-light: 				100
+$font-regular: 			400
+$font-bold: 				700
 
 // Base Mixins
 
@@ -67,7 +67,7 @@ $bold: 							700
 	line-height: 0.9rem
 
 @mixin h5
-	font-size: 1rem
+	font-size: 0.9rem
 	color: $gray
 	line-height: 0.7rem
 	text-transform: uppercase
@@ -136,8 +136,6 @@ $bold: 							700
 	-webkit-transition-delay: $delay
 	transition-delay:         $delay
 
-
-
 // Base Styles
 
 html, body
@@ -148,7 +146,7 @@ html, body
 	width: 100%
 	color: $cobalt-dark
 	font:
-		weight: $light
+		weight: $font-light
 		size: $base-height
 		family: $base-font
 
@@ -185,11 +183,100 @@ ul, li
 		margin: 0px
 		background-color: none
 
+// Base Buttons
+
+.btn
+	padding: 0.5rem 1.5rem
+	vertical-align: middle
+	letter-spacing: 1px
+	font-weight: $font-bold
+	background-color: none
+	border-color: lighten($cobalt-ulight, 10%)
+	@include base-border
+	@include border-radius
+	@include h5
+	@include transition(all 0.3s ease-in-out)
+	&:hover
+		@include base-border
+		@include transition(all 0.3s ease-in-out)
+		color: $white
+	&:visited
+		text-decoration: none
+
+.btn-blue
+	background-color: $blue-light
+	background-image: -webkit-linear-gradient($blue-light, $blue-mid)
+	background-image: linear-gradient($blue-light, $blue-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($blue-mid, 20%), $blue-mid)
+		background-image: linear-gradient(lighten($blue-mid, 20%), $blue-mid)
+
+.btn-yellow
+	background-color: $yellow-light
+	background-image: -webkit-linear-gradient($yellow-light, $yellow-mid)
+	background-image: linear-gradient($yellow-light, $yellow-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $black-mid
+	text-shadow: 0 -1px 5px rgba(255, 255, 255, 0.2)	
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
+		background-image: linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
+		color: $black-mid
+
+.btn-black
+	background-color: $black-light
+	background-image: -webkit-linear-gradient($black-light, $black-mid)
+	background-image: linear-gradient($black-light, $black-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($black-light, 20%), $black-mid)
+		background-image: linear-gradient(lighten($black-light, 20%), $black-mid)
+
+.btn-white
+	background-color: $white-light
+	background-image: -webkit-linear-gradient($white-light, $white-mid)
+	background-image: linear-gradient($white-light, $white-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $cobalt-mid
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($white-light, 20%), $white-mid)
+		background-image: linear-gradient(lighten($white-light, 20%), $white-mid)
+		color: $cobalt-mid
+
+.btn-orange
+	background-color: $orange-light
+	background-image: -webkit-linear-gradient($orange-light, $orange-mid)
+	background-image: linear-gradient($orange-light, $orange-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($orange-light, 20%), $orange-mid)
+		background-image: linear-gradient(lighten($orange-light, 20%), $orange-mid)
+
+.btn-green
+	background-color: $green-light
+	background-image: -webkit-linear-gradient($green-light, $green-mid)
+	background-image: linear-gradient($green-light, $green-mid)
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
+	color: $white
+	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($green-light, 20%), $green-mid)
+		background-image: linear-gradient(lighten($green-light, 20%), $green-mid)
+
 // Base Layout
 
 .container
 	width: 1250px
 	margin-top: 10%
+	padding: 15rem 0px 
+	background-color: $white
 	@include center-block
 
 .container-section
@@ -212,7 +299,7 @@ ul, li
 	padding: 0px 6rem
 	width: 100%
 	height: 100px
-	font-weight: $bold
+	font-weight: $font-bold
 	background-color: $yellow-light
 	// border-top: 1px solid $yellow-mid
 	// border-bottom: 1px solid $yellow-mid
@@ -306,11 +393,11 @@ ul, li
 	padding: 3rem 2rem 2.9rem
 	border-top: 0px solid transparent
 	&:hover
-		padding: 2.8rem 2rem 2.9rem
+		padding: 2.7rem 2rem 2.9rem
 		border-top: 5px solid $cobalt-dark
 
 .nav.v3 .selected
-	padding: 2.8rem 2rem 2.9rem
+	padding: 2.7rem 2rem 2.9rem
 	border-top: 5px solid $cobalt-dark
 
 .nav.v3 .controls-user .btn
@@ -439,91 +526,6 @@ ul, li
 .sub.v4 .controls-user .btn
 	padding: 0.5rem 1.5rem
 
-// Base Buttons
-
-.btn
-	padding: 0.5rem 1.5rem
-	vertical-align: middle
-	letter-spacing: 1px
-	font-weight: $bold
-	background-color: none
-	@include base-border
-	@include border-radius
-	border-color: $cobalt-ulight
-	@include h5
-	@include transition(all 0.3s ease-in-out)
-	&:hover
-		@include base-border
-		@include transition(all 0.3s ease-in-out)
-		color: $white
-	&:visited
-		text-decoration: none
-
-.btn-blue
-	background-color: $blue-light
-	background-image: -webkit-linear-gradient(lighten($blue-mid, 20%), $blue-mid)
-	background-image: linear-gradient(lighten($blue-mid, 20%), $blue-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
-	&:hover
-		background-image: -webkit-linear-gradient($blue-light, $blue-mid)
-		background-image: linear-gradient($blue-light, $blue-mid)
-
-.btn-yellow
-	background-color: $yellow-light
-	background-image: -webkit-linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
-	background-image: linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $cobalt-mid
-	&:hover
-		background-image: -webkit-linear-gradient($yellow-light, $yellow-mid)
-		background-image: linear-gradient($yellow-light, $yellow-mid)
-		color: $cobalt-mid
-
-.btn-black
-	background-color: $black-light
-	background-image: -webkit-linear-gradient(lighten($black-mid, 20%), $black-mid)
-	background-image: linear-gradient(lighten($black-mid, 20%), $black-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
-	&:hover
-		background-image: -webkit-linear-gradient($black-light, $black-mid)
-		background-image: linear-gradient($black-light, $black-mid)
-
-.btn-white
-	background-color: $white-light
-	background-image: -webkit-linear-gradient(lighten($white-light, 20%), $white-light)
-	background-image: linear-gradient(lighten($white-light, 20%), $white-light)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $cobalt-mid
-	&:hover
-		background-image: -webkit-linear-gradient($white-light, $white-light)
-		background-image: linear-gradient($white-light, $white-light)
-		color: $cobalt-mid
-
-.btn-orange
-	background-color: $orange-light
-	background-image: -webkit-linear-gradient(lighten($orange-mid, 20%), $orange-mid)
-	background-image: linear-gradient(lighten($orange-mid, 20%), $orange-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
-	&:hover
-		background-image: -webkit-linear-gradient($orange-light, $orange-mid)
-		background-image: linear-gradient($orange-light, $orange-mid)
-
-.btn-green
-	background-color: $green-light
-	background-image: -webkit-linear-gradient(lighten($green-mid, 20%), $green-mid)
-	background-image: linear-gradient(lighten($green-mid, 20%), $green-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
-	&:hover
-		background-image: -webkit-linear-gradient($green-light, $green-mid)
-		background-image: linear-gradient($green-light, $green-mid)
 
 
 
