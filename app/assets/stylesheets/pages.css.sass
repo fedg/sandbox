@@ -3,38 +3,39 @@
 
 // Colour Palette
 
-$cobalt-ulight: 		rgba(115, 122, 130, 1)
-$cobalt-light: 			rgba(95, 102, 110, 1)
-$cobalt-reg: 				rgba(75, 82, 90, 1)
-$cobalt-mid: 				rgba(55, 62, 70, 1)
-$cobalt-dark: 			rgba(35, 42, 50, 1)
+$cobalt-ulight: 		rgb(115, 122, 130)
+$cobalt-light: 			rgb(95, 102, 110)
+$cobalt-reg: 				rgb(75, 82, 90)
+$cobalt-mid: 				rgb(55, 62, 70)
+$cobalt-dark: 			rgb(35, 42, 50)
 
-$blue-light: 				rgba(109, 221, 252, 1)
-$blue-mid: 					rgba(89, 201, 232, 1)
-$blue-dark: 				rgba(69, 181, 202, 1)
+$blue-light: 				rgb(109, 221, 252)
+$blue-mid: 					rgb(89, 201, 232)
+$blue-dark: 				rgb(69, 181, 202)
 
-$yellow-light: 			rgba(255, 227, 85, 1)
-$yellow-mid: 				rgba(235, 207, 65, 1)
-$yellow-dark: 			rgba(215, 187, 45, 1)
+$yellow-light: 			rgb(255, 227, 85)
+$yellow-mid: 				rgb(235, 207, 65)
+$yellow-dark: 			rgb(215, 187, 45)
 
-$black-light: 			rgba(73, 73, 73, 1)
-$black-mid: 				rgba(53, 53, 53, 1)
-$black-dark: 				rgba(33, 33, 33, 1)
+$black-light: 			rgb(73, 73, 73)
+$black-mid: 				rgb(53, 53, 53)
+$black-dark: 				rgb(33, 33, 33)
 
-$gray: 							rgba(51, 51, 51, 1)
-$white: 						rgba(255, 255, 255, 1)
+$gray: 							rgb(51, 51, 51)
+$white: 						rgb(255, 255, 255)
+$black: 						rgb(0, 0, 0)
 
-$white-light: 			rgba(239, 239, 239, 1)
-$white-mid: 				rgba(219, 219, 219, 1)
-$white-dark: 				rgba(199, 199, 199, 1)
+$white-light: 			rgb(239, 239, 239)
+$white-mid: 				rgb(219, 219, 219)
+$white-dark: 				rgb(199, 199, 199)
 
-$orange-light: 			rgba(252, 94, 56, 1)
-$orange-mid: 				rgba(232, 74, 36, 1)
-$orange-dark: 			rgba(212, 54, 16, 1)
+$orange-light: 			rgb(252, 94, 56)
+$orange-mid: 				rgb(232, 74, 36)
+$orange-dark: 			rgb(212, 54, 16)
 
-$green-light: 			rgba(229, 231, 67, 1)
-$green-mid: 				rgba(209, 211, 47, 1)
-$green-dark: 				rgba(189, 191, 27, 1)
+$green-light: 			rgb(229, 231, 67)
+$green-mid: 				rgb(209, 211, 47)
+$green-dark: 				rgb(189, 191, 27)
 
 // Typography
 
@@ -150,13 +151,15 @@ html, body
 		size: $base-height
 		family: $base-font
 
+.clear
+	clear: both
+
 *, *:after, *:before
 	@include box-sizing(border-box)
 
 a, a:hover, a:active
 	text-decoration: none
 	color: $cobalt-dark
-	@include transition(all 0.3s ease-in-out)
 
 img
 	width: 100%
@@ -186,98 +189,136 @@ ul, li
 // Base Buttons
 
 .btn
-	padding: 0.5rem 1.5rem
+	padding: 0.7rem 1.5rem
+	margin-right: 2rem
 	vertical-align: middle
 	letter-spacing: 1px
 	font-weight: $font-bold
+	text-shadow: 0 -1px 5px rgba($black, 0.2)
 	background-color: none
 	border-color: lighten($cobalt-ulight, 10%)
-	@include base-border
-	@include border-radius
-	@include h5
-	@include transition(all 0.3s ease-in-out)
+	box-shadow: 0 1px 0 0 rgba($white, 0.34)
+	+base-border
+	+border-radius
+	+h5
+	color: $white
 	&:hover
-		@include base-border
-		@include transition(all 0.3s ease-in-out)
+		+base-border
 		color: $white
 	&:visited
 		text-decoration: none
+	&:active
+		color: $white
+		text-shadow: none
+		-webkit-box-shadow: inset 0px 1px 6px rgba($black-mid, 0.7)
+		-moz-box-shadow: inset 0px 1px 6px rgba($black-mid, 0.7)
+		box-shadow: inset 0px 1px 6px rgba($black-mid, 0.7)
+
+// Blue Button
 
 .btn-blue
 	background-color: $blue-light
 	background-image: -webkit-linear-gradient($blue-light, $blue-mid)
 	background-image: linear-gradient($blue-light, $blue-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
 	&:hover
-		background-image: -webkit-linear-gradient(lighten($blue-mid, 20%), $blue-mid)
-		background-image: linear-gradient(lighten($blue-mid, 20%), $blue-mid)
+		background-image: -webkit-linear-gradient(lighten($blue-light, 10%), $blue-mid)
+		background-image: linear-gradient(lighten($blue-light, 10%), $blue-mid)
+	&:active
+		background-image: -webkit-linear-gradient($blue-mid, $blue-light)
+		background-image: linear-gradient($blue-mid, $blue-light)
+
+// Yellow Button
 
 .btn-yellow
 	background-color: $yellow-light
 	background-image: -webkit-linear-gradient($yellow-light, $yellow-mid)
 	background-image: linear-gradient($yellow-light, $yellow-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
 	color: $black-mid
-	text-shadow: 0 -1px 5px rgba(255, 255, 255, 0.2)	
+	text-shadow: 0 -1px 2px rgba($white, 0.2)	
 	&:hover
-		background-image: -webkit-linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
-		background-image: linear-gradient(lighten($yellow-mid, 20%), $yellow-mid)
+		background-image: -webkit-linear-gradient(lighten($yellow-light, 10%), $yellow-mid)
+		background-image: linear-gradient(lighten($yellow-light, 10%), $yellow-mid)
 		color: $black-mid
+	&:active
+		background-image: -webkit-linear-gradient($yellow-mid, $yellow-light)
+		background-image: linear-gradient($yellow-mid, $yellow-light)
+
+// Black Button
 
 .btn-black
 	background-color: $black-light
 	background-image: -webkit-linear-gradient($black-light, $black-mid)
 	background-image: linear-gradient($black-light, $black-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	text-shadow: 0 -1px 2px rgba($black, 0.2)
 	&:hover
-		background-image: -webkit-linear-gradient(lighten($black-light, 20%), $black-mid)
-		background-image: linear-gradient(lighten($black-light, 20%), $black-mid)
+		background-image: -webkit-linear-gradient(lighten($black-light, 10%), $black-mid)
+		background-image: linear-gradient(lighten($black-light, 10%), $black-mid)
+	&:active
+		background-image: -webkit-linear-gradient($black-mid, $black-light)
+		background-image: linear-gradient($black-mid, $black-light)
+		-webkit-box-shadow: inset 0px 2px 8px $black-mid
+		-moz-box-shadow: inset 0px 2px 8px $black-mid
+		box-shadow: inset 0px 2px 8px $black-mid
+
+// White Button
 
 .btn-white
 	background-color: $white-light
 	background-image: -webkit-linear-gradient($white-light, $white-mid)
 	background-image: linear-gradient($white-light, $white-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $cobalt-mid
+	color: rgba($black-dark, 0.7)
+	text-shadow: 0 -1px 2px rgba($white, 0.2)	
 	&:hover
-		background-image: -webkit-linear-gradient(lighten($white-light, 20%), $white-mid)
-		background-image: linear-gradient(lighten($white-light, 20%), $white-mid)
-		color: $cobalt-mid
+		background-image: -webkit-linear-gradient(lighten($white-light, 10%), $white-mid)
+		background-image: linear-gradient(lighten($white-light, 10%), $white-mid)
+		color: rgba($black-dark, 0.7)
+	&:active
+		background-image: -webkit-linear-gradient($white-mid, $white-light)
+		background-image: linear-gradient($white-mid, $white-light)
+
+// Orange-Red Button
 
 .btn-orange
 	background-color: $orange-light
 	background-image: -webkit-linear-gradient($orange-light, $orange-mid)
 	background-image: linear-gradient($orange-light, $orange-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	text-shadow: 0 -1px 2px rgba($black, 0.2)
 	&:hover
-		background-image: -webkit-linear-gradient(lighten($orange-light, 20%), $orange-mid)
-		background-image: linear-gradient(lighten($orange-light, 20%), $orange-mid)
+		background-image: -webkit-linear-gradient(lighten($orange-light, 10%), $orange-mid)
+		background-image: linear-gradient(lighten($orange-light, 10%), $orange-mid)
+	&:active
+		background-image: -webkit-linear-gradient($orange-mid, $orange-light)
+		background-image: linear-gradient($orange-mid, $orange-light)
+
+// Green Button
 
 .btn-green
 	background-color: $green-light
 	background-image: -webkit-linear-gradient($green-light, $green-mid)
 	background-image: linear-gradient($green-light, $green-mid)
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34)
-	color: $white
-	text-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2)
+	color: rgba($black-dark, 0.7)
+	text-shadow: 0 -1px 2px rgba($white, 0.2)	
 	&:hover
-		background-image: -webkit-linear-gradient(lighten($green-light, 20%), $green-mid)
-		background-image: linear-gradient(lighten($green-light, 20%), $green-mid)
+		background-image: -webkit-linear-gradient(lighten($green-light, 10%), $green-mid)
+		background-image: linear-gradient(lighten($green-light, 10%), $green-mid)
+		color: rgba($black-dark, 0.7)
+	&:active
+		background-image: -webkit-linear-gradient($green-mid, $green-light)
+		background-image: linear-gradient($green-mid, $green-light)
 
 // Base Layout
 
 .container
 	width: 1250px
-	margin-top: 10%
-	padding: 15rem 0px 
+	margin: 30% 0
 	background-color: $white
 	@include center-block
+
+.container-buttons ul li 
+	list-style: none
+	position: relative
+	float: left
+
 
 .container-section
 	width: 100%
@@ -387,7 +428,7 @@ ul, li
 	&:hover
 		background-color: $yellow-mid
 
-// Main Nav v3.0
+// ===================================================== Main Nav v3.0
 
 .nav.v3 a
 	padding: 3rem 2rem 2.9rem
@@ -525,7 +566,41 @@ ul, li
 
 .sub.v4 .controls-user .btn
 	padding: 0.5rem 1.5rem
+	margin-right: 2rem
+	vertical-align: middle
+	letter-spacing: 1px
+	font-weight: $font-bold
+	background-color: none
+	border-color: lighten($cobalt-ulight, 10%)
+	@include base-border
+	@include border-radius
+	@include h5
+	@include transition(all 0.3s ease-in-out)
+	&:hover
+		@include base-border
+		@include transition(all 0.3s ease-in-out)
+		color: $white
+	&:visited
+		text-decoration: none
+	&:active
+		color: $white
+		text-shadow: none
+		-webkit-box-shadow: inset 0px 2px 8px rgba($black-dark, 0.7)
+		-moz-box-shadow: inset 0px 2px 8px rgba($black-dark, 0.7)
+		box-shadow: inset 0px 2px 8px rgba($black-dark, 0.7)
 
+.sub.v4 .controls-user .btn-yellow
+	padding: 0.5rem 1.5rem
+	background-color: $yellow-light
+	background-image: -webkit-linear-gradient($yellow-light, $yellow-mid)
+	background-image: linear-gradient($yellow-light, $yellow-mid)
+	box-shadow: 0 1px 0 0 rgba($white, 0.34)
+	color: $black-mid
+	text-shadow: 0 -1px 5px rgba(255, 255, 255, 0.2)	
+	&:hover
+		background-image: -webkit-linear-gradient(lighten($yellow-light, 10%), $yellow-mid)
+		background-image: linear-gradient(lighten($yellow-light, 10%), $yellow-mid)
+		color: $black-mid
 
 
 
